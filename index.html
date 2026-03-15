@@ -33,7 +33,7 @@
             z-index: 0;
         }
 
-        /* ── Top-left: Quote ─────────────────────────────────────────────── */
+        /* ── Top-left: Quote block ───────────────────────────────────────── */
         #quote-block {
             position: fixed;
             top: clamp(24px, 4vh, 52px);
@@ -44,14 +44,21 @@
             opacity: 0;
             transform: translateY(-14px);
             transition: opacity 3s ease, transform 3s ease;
+            /* Frosted glass backing — absorbs any texture beneath */
+            padding: 18px 24px 18px 18px;
+            background: rgba(1, 3, 14, 0.28);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 2px;
+            border-left: 0.5px solid rgba(140, 168, 230, 0.10);
         }
 
-            #quote-block.show {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        #quote-block.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-        /* On small screens, quote moves below the moon (bottom area) */
+        /* Small screens: quote repositions to bottom centre */
         @media (max-width: 640px) {
             #quote-block {
                 top: auto;
@@ -60,41 +67,53 @@
                 transform: translateX(-50%) translateY(10px);
                 max-width: 88vw;
                 text-align: center;
+                padding: 16px 20px;
+                border-left: none;
+                border-top: 0.5px solid rgba(140, 168, 230, 0.10);
             }
-
-                #quote-block.show {
-                    transform: translateX(-50%) translateY(0);
-                }
-
-            .q-line {
-                margin: 0 auto 16px;
+            #quote-block.show {
+                transform: translateX(-50%) translateY(0);
             }
+            .q-line { margin: 0 auto 16px; }
         }
 
+        /* ── Quote: eyebrow ─────────────────────────────────────────────── */
         .q-eyebrow {
             font-family: 'Montserrat', sans-serif;
             font-size: clamp(7px, 0.7vw, 9px);
             font-weight: 200;
             letter-spacing: 4.5px;
-            color: rgba(150, 175, 235, 0.32);
+            color: rgba(150, 175, 235, 0.55);
             text-transform: uppercase;
             margin-bottom: 12px;
+            text-shadow:
+                0 0 8px  rgba(0, 0, 12, 0.98),
+                0 0 20px rgba(0, 0, 12, 0.80),
+                0 1px 3px rgba(0, 0, 12, 1);
         }
 
+        /* ── Quote: language badge ──────────────────────────────────────── */
         .q-lang-badge {
             display: inline-block;
             font-family: 'Montserrat', sans-serif;
             font-size: clamp(6px, 0.65vw, 8px);
             font-weight: 200;
             letter-spacing: 3px;
-            color: rgba(160, 190, 245, 0.28);
+            color: rgba(180, 205, 255, 0.75);
             text-transform: uppercase;
-            border: 0.5px solid rgba(150, 175, 235, 0.12);
-            padding: 3px 8px;
+            border: 0.5px solid rgba(150, 175, 235, 0.20);
+            padding: 3px 10px;
             border-radius: 20px;
             margin-bottom: 14px;
+            background: rgba(8, 12, 40, 0.50);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            text-shadow:
+                0 0 6px  rgba(0, 0, 12, 0.98),
+                0 0 14px rgba(0, 0, 12, 0.75);
         }
 
+        /* ── Quote: horizontal rule ─────────────────────────────────────── */
         .q-line {
             display: block;
             width: 22px;
@@ -103,35 +122,53 @@
             margin-bottom: 16px;
         }
 
+        /* ── Quote: main text ───────────────────────────────────────────── */
         .q-text {
             font-family: 'Cormorant Garamond', serif;
             font-style: italic;
             font-size: clamp(15px, 1.7vw, 23px);
             font-weight: 300;
-            color: rgba(215, 228, 255, 0.75);
-            line-height: 1.7;
+            color: rgba(232, 240, 255, 0.92);
+            line-height: 1.75;
             letter-spacing: 0.15px;
+            /* Deep multi-radius halo burns out the background */
+            text-shadow:
+                0 0 5px  rgba(0, 0, 10, 1),
+                0 0 12px rgba(0, 0, 10, 0.98),
+                0 0 26px rgba(0, 0, 10, 0.88),
+                0 0 50px rgba(0, 0, 10, 0.65),
+                0 0 90px rgba(0, 0, 10, 0.40),
+                0 2px 4px rgba(0, 0, 10, 1);
         }
 
+        /* ── Quote: translation ─────────────────────────────────────────── */
         .q-translation {
             margin-top: 10px;
             font-family: 'Montserrat', sans-serif;
             font-size: clamp(7px, 0.65vw, 9px);
             font-weight: 200;
             letter-spacing: 1.5px;
-            color: rgba(140, 165, 225, 0.25);
+            color: rgba(145, 168, 228, 0.60);
             line-height: 1.6;
             font-style: normal;
+            text-shadow:
+                0 0 8px  rgba(0, 0, 12, 0.98),
+                0 0 20px rgba(0, 0, 12, 0.75),
+                0 1px 3px rgba(0, 0, 12, 1);
         }
 
+        /* ── Quote: attribution ─────────────────────────────────────────── */
         .q-attr {
             margin-top: 14px;
             font-family: 'Montserrat', sans-serif;
             font-size: clamp(6px, 0.6vw, 8px);
             font-weight: 200;
             letter-spacing: 3px;
-            color: rgba(130, 155, 218, 0.22);
+            color: rgba(130, 155, 218, 0.48);
             text-transform: uppercase;
+            text-shadow:
+                0 0 8px  rgba(0, 0, 12, 0.98),
+                0 0 20px rgba(0, 0, 12, 0.70);
         }
 
         /* ── Top-right: Day pill ─────────────────────────────────────────── */
@@ -144,17 +181,19 @@
             font-size: clamp(6px, 0.65vw, 8px);
             font-weight: 200;
             letter-spacing: 4px;
-            color: rgba(130, 158, 220, 0.25);
+            color: rgba(140, 165, 228, 0.55);
             text-transform: uppercase;
             pointer-events: none;
             opacity: 0;
             transition: opacity 3s ease 1.2s;
             text-align: right;
+            text-shadow:
+                0 0 8px  rgba(0, 0, 12, 0.98),
+                0 0 22px rgba(0, 0, 12, 0.78),
+                0 1px 4px rgba(0, 0, 12, 1);
         }
 
-            #day-pill.show {
-                opacity: 1;
-            }
+        #day-pill.show { opacity: 1; }
 
         /* ── Bottom-left: Signature ──────────────────────────────────────── */
         #signature {
@@ -170,14 +209,12 @@
             transition: opacity 3s ease 1s;
         }
 
-            #signature.show {
-                opacity: 1;
-            }
+        #signature.show { opacity: 1; }
 
         .sig-bar {
             width: 0.5px;
             height: 40px;
-            background: rgba(140, 168, 230, 0.15);
+            background: rgba(140, 168, 230, 0.18);
             flex-shrink: 0;
         }
 
@@ -186,18 +223,20 @@
             font-style: italic;
             font-size: clamp(11px, 1vw, 14px);
             font-weight: 300;
-            color: rgba(160, 185, 240, 0.25);
+            color: rgba(175, 198, 248, 0.52);
             letter-spacing: 1px;
             padding-bottom: 2px;
+            text-shadow:
+                0 0 8px  rgba(0, 0, 12, 0.98),
+                0 0 22px rgba(0, 0, 12, 0.78),
+                0 1px 4px rgba(0, 0, 12, 1);
         }
 
         @media (max-width: 640px) {
-            #signature {
-                display: none;
-            }
+            #signature { display: none; }
         }
 
-        /* ── Bottom-right: Countdown ─────────────────────────────────────── */
+        /* ── Bottom-right: Countdown block ──────────────────────────────── */
         #countdown-block {
             position: fixed;
             bottom: clamp(24px, 4vh, 52px);
@@ -208,12 +247,19 @@
             opacity: 0;
             transform: translateY(14px);
             transition: opacity 3s ease 0.5s, transform 3s ease 0.5s;
+            /* Frosted glass backing */
+            padding: 18px 20px 16px 28px;
+            background: rgba(1, 3, 14, 0.26);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 2px;
+            border-right: 0.5px solid rgba(140, 168, 230, 0.09);
         }
 
-            #countdown-block.show {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        #countdown-block.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
         @media (max-width: 640px) {
             #countdown-block {
@@ -221,21 +267,27 @@
                 right: 50%;
                 transform: translateX(50%) translateY(14px);
                 text-align: center;
+                padding: 14px 18px;
+                border-right: none;
+                border-top: 0.5px solid rgba(140, 168, 230, 0.09);
             }
-
-                #countdown-block.show {
-                    transform: translateX(50%) translateY(0);
-                }
+            #countdown-block.show {
+                transform: translateX(50%) translateY(0);
+            }
         }
 
+        /* ── Countdown: headline ─────────────────────────────────────────── */
         .cd-headline {
             font-family: 'Montserrat', sans-serif;
             font-size: clamp(6px, 0.65vw, 8px);
             font-weight: 200;
             letter-spacing: 4.5px;
-            color: rgba(130, 158, 220, 0.25);
+            color: rgba(140, 165, 228, 0.55);
             text-transform: uppercase;
             margin-bottom: 16px;
+            text-shadow:
+                0 0 8px  rgba(0, 0, 12, 0.98),
+                0 0 20px rgba(0, 0, 12, 0.70);
         }
 
         .cd-units {
@@ -246,9 +298,7 @@
         }
 
         @media (max-width: 640px) {
-            .cd-units {
-                justify-content: center;
-            }
+            .cd-units { justify-content: center; }
         }
 
         .cd-cell {
@@ -259,50 +309,70 @@
             min-width: clamp(36px, 5vw, 58px);
         }
 
+        /* ── Countdown: numerals ─────────────────────────────────────────── */
         .cd-num {
             font-family: 'Cormorant Garamond', serif;
             font-size: clamp(36px, 5vw, 66px);
             font-weight: 300;
-            color: rgba(200, 218, 255, 0.78);
+            color: rgba(218, 230, 255, 0.92);
             line-height: 1;
             text-align: center;
             letter-spacing: -1px;
-            text-shadow: 0 0 50px rgba(120, 160, 255, 0.12);
+            /* Four-layer deep shadow for maximum contrast */
+            text-shadow:
+                0 0 5px  rgba(0, 0, 10, 1),
+                0 0 14px rgba(0, 0, 10, 0.98),
+                0 0 32px rgba(0, 0, 10, 0.88),
+                0 0 65px rgba(0, 0, 10, 0.60),
+                0 0 110px rgba(0, 0, 10, 0.35),
+                0 2px 5px rgba(0, 0, 10, 1);
             transition: opacity 0.18s ease, transform 0.18s ease;
         }
 
-            .cd-num.tick {
-                opacity: 0.25;
-                transform: translateY(-5px);
-            }
+        .cd-num.tick {
+            opacity: 0.22;
+            transform: translateY(-5px);
+        }
 
+        /* ── Countdown: unit labels ──────────────────────────────────────── */
         .cd-lbl {
             font-family: 'Montserrat', sans-serif;
             font-size: clamp(5px, 0.55vw, 7px);
             font-weight: 200;
             letter-spacing: 2.5px;
-            color: rgba(120, 148, 210, 0.22);
+            color: rgba(125, 152, 215, 0.55);
             text-transform: uppercase;
+            text-shadow:
+                0 0 6px  rgba(0, 0, 12, 0.98),
+                0 0 16px rgba(0, 0, 12, 0.72);
         }
 
+        /* ── Countdown: colon separator ──────────────────────────────────── */
         .cd-colon {
             font-family: 'Cormorant Garamond', serif;
             font-size: clamp(28px, 4vw, 54px);
             font-weight: 300;
-            color: rgba(140, 168, 230, 0.12);
+            color: rgba(150, 175, 235, 0.22);
             line-height: 1;
             padding-top: 1px;
             align-self: flex-start;
+            text-shadow:
+                0 0 10px rgba(0, 0, 12, 0.98),
+                0 0 26px rgba(0, 0, 12, 0.72);
         }
 
+        /* ── Countdown: date line ────────────────────────────────────────── */
         .cd-date {
             margin-top: 14px;
             font-family: 'Montserrat', sans-serif;
             font-size: clamp(6px, 0.6vw, 8px);
             font-weight: 100;
             letter-spacing: 5px;
-            color: rgba(110, 138, 200, 0.18);
+            color: rgba(118, 145, 208, 0.48);
             text-transform: uppercase;
+            text-shadow:
+                0 0 8px  rgba(0, 0, 12, 0.98),
+                0 0 20px rgba(0, 0, 12, 0.70);
         }
 
         /* ── Corner brackets ─────────────────────────────────────────────── */
@@ -311,37 +381,13 @@
             z-index: 20;
             width: 12px;
             height: 12px;
-            opacity: 0.12;
+            opacity: 0.14;
             pointer-events: none;
         }
-
-            .corner.tl {
-                top: 16px;
-                left: 18px;
-                border-top: 0.5px solid #8aaae0;
-                border-left: 0.5px solid #8aaae0;
-            }
-
-            .corner.tr {
-                top: 16px;
-                right: 18px;
-                border-top: 0.5px solid #8aaae0;
-                border-right: 0.5px solid #8aaae0;
-            }
-
-            .corner.bl {
-                bottom: 16px;
-                left: 18px;
-                border-bottom: 0.5px solid #8aaae0;
-                border-left: 0.5px solid #8aaae0;
-            }
-
-            .corner.br {
-                bottom: 16px;
-                right: 18px;
-                border-bottom: 0.5px solid #8aaae0;
-                border-right: 0.5px solid #8aaae0;
-            }
+        .corner.tl { top: 16px; left: 18px; border-top: 0.5px solid #8aaae0; border-left: 0.5px solid #8aaae0; }
+        .corner.tr { top: 16px; right: 18px; border-top: 0.5px solid #8aaae0; border-right: 0.5px solid #8aaae0; }
+        .corner.bl { bottom: 16px; left: 18px; border-bottom: 0.5px solid #8aaae0; border-left: 0.5px solid #8aaae0; }
+        .corner.br { bottom: 16px; right: 18px; border-bottom: 0.5px solid #8aaae0; border-right: 0.5px solid #8aaae0; }
 
         /* ── Birthday reveal ─────────────────────────────────────────────── */
         #bday-veil {
@@ -358,31 +404,38 @@
             transition: opacity 4.5s ease;
         }
 
-            #bday-veil.show {
-                opacity: 1;
-            }
+        #bday-veil.show { opacity: 1; }
 
         .bday-main {
             font-family: 'Cormorant Garamond', serif;
             font-style: italic;
             font-size: clamp(22px, 3.8vw, 50px);
             font-weight: 300;
-            color: rgba(218, 232, 255, 0.9);
+            color: rgba(228, 238, 255, 0.94);
             text-align: center;
             letter-spacing: 1px;
-            text-shadow: 0 0 80px rgba(140, 180, 255, 0.25);
             padding: 0 24px;
+            text-shadow:
+                0 0 6px  rgba(0, 0, 10, 1),
+                0 0 18px rgba(0, 0, 10, 0.95),
+                0 0 40px rgba(0, 0, 10, 0.80),
+                0 0 80px rgba(140, 180, 255, 0.20),
+                0 2px 5px rgba(0, 0, 10, 1);
         }
 
         .bday-tamil {
             font-family: 'Cormorant Garamond', serif;
             font-size: clamp(14px, 2vw, 26px);
             font-weight: 300;
-            color: rgba(175, 200, 255, 0.55);
+            color: rgba(185, 208, 255, 0.62);
             text-align: center;
             line-height: 1.75;
             max-width: min(580px, 90vw);
             padding: 0 24px;
+            text-shadow:
+                0 0 8px  rgba(0, 0, 10, 0.98),
+                0 0 22px rgba(0, 0, 10, 0.80),
+                0 1px 4px rgba(0, 0, 10, 1);
         }
 
         .bday-sub {
@@ -390,9 +443,12 @@
             font-size: clamp(7px, 0.7vw, 9px);
             font-weight: 200;
             letter-spacing: 6px;
-            color: rgba(140, 168, 230, 0.25);
+            color: rgba(148, 172, 232, 0.38);
             text-transform: uppercase;
             margin-top: 6px;
+            text-shadow:
+                0 0 8px  rgba(0, 0, 12, 0.98),
+                0 0 20px rgba(0, 0, 12, 0.70);
         }
     </style>
 </head>
@@ -450,78 +506,67 @@
     </div>
 
     <script>
-        // ─── 26 daily multilingual quotes (Mar 15 → Apr 9) + birthday (Apr 10) ───────
-        // Day 0 = Mar 15 (eclipse crescent), Day 26 = Apr 10 (full moon, Tamil)
         const QUOTES = [
-            { lang: 'English', text: 'You are the reason the moon rises a little brighter tonight.', trans: '', attr: 'March 15' },
-            { lang: 'Tamil', text: 'நீ என் இதயத்தில் என்றும் வாழும் ஒளி.', trans: 'You are the light that lives forever in my heart.', attr: 'March 16' },
-            { lang: 'French', text: 'Dans chaque battement de mon cœur, il y a ton prénom.', trans: 'In every heartbeat of mine, there is your name.', attr: 'March 17' },
-            { lang: 'Spanish', text: 'Eres la calma que siempre estuve buscando.', trans: 'You are the calm I was always searching for.', attr: 'March 18' },
-            { lang: 'Japanese', text: 'あなたといると、時間が止まるみたいだ。', trans: 'When I am with you, time seems to stop.', attr: 'March 19' },
-            { lang: 'Italian', text: 'Sei la cosa più gentile e più potente nella mia vita.', trans: 'You are the gentlest and most powerful thing in my life.', attr: 'March 20' },
-            { lang: 'Hindi', text: 'तुम हो तो हर रोज़ त्योहार है।', trans: 'With you, every day feels like a celebration.', attr: 'March 21' },
-            { lang: 'Portuguese', text: 'Você é o lar que eu nunca soube que precisava.', trans: 'You are the home I never knew I needed.', attr: 'March 22' },
-            { lang: 'Korean', text: '네가 있어서 세상이 따뜻해.', trans: 'Because of you, the world feels warm.', attr: 'March 23' },
-            { lang: 'Arabic', text: 'أنتِ النور الذي يُضيء كلّ يوم في حياتي.', trans: 'You are the light that brightens every day of my life.', attr: 'March 24' },
-            { lang: 'German', text: 'Du bist die Antwort auf eine Frage, die ich nie zu stellen wusste.', trans: 'You are the answer to a question I never knew to ask.', attr: 'March 25' },
-            { lang: 'Malayalam', text: 'നിന്റെ ചിരി കാണുമ്പോൾ ഹൃദയം നിറഞ്ഞൊഴുകും.', trans: 'When I see your smile, my heart overflows.', attr: 'March 26' },
-            { lang: 'Telugu', text: 'నువ్వు నా జీవితంలో వెలుతురువి.', trans: 'You are the light in my life.', attr: 'March 27' },
-            { lang: 'English', text: 'The closer we get to your day, the more the moon reveals itself — for you.', trans: '', attr: 'March 28' },
-            { lang: 'Tamil', text: 'இந்த நிலவு உன்னுடைய நாளுக்காக காத்திருக்கிறது.', trans: 'This moon has been waiting for your day.', attr: 'March 29' },
-            { lang: 'French', text: 'Quand tu es née, le monde est devenu un endroit plus doux.', trans: 'When you were born, the world became a kinder place.', attr: 'March 30' },
-            { lang: 'Spanish', text: 'Eres lo que el silencio trataba de decir.', trans: 'You are what the silence was trying to say.', attr: 'March 31' },
-            { lang: 'Japanese', text: '月はほぼ満ちている。あなたへの私の心のように。', trans: 'The moon is almost full. Like my heart — because of you.', attr: 'April 1' },
-            { lang: 'Korean', text: '별들은 태초부터 너를 향해 카운트다운하고 있었어.', trans: 'The stars have been counting down to you since the beginning.', attr: 'April 2' },
-            { lang: 'Arabic', text: 'أنتِ المعنى الذي كنتُ أبحث عنه دائماً.', trans: 'You are the meaning I was always searching for.', attr: 'April 3' },
-            { lang: 'Italian', text: 'Sei la casa che non sapevo di cercare.', trans: 'You are the home I did not know I was looking for.', attr: 'April 4' },
-            { lang: 'Hindi', text: 'तुम वो सुबह हो जिसके लिए हर रात का इंतज़ार सार्थक है।', trans: 'You are the morning that makes every night worth waiting for.', attr: 'April 5' },
-            { lang: 'German', text: 'Drei Tage. Das Universum hat etwas Außergewöhnliches vorbereitet — dich.', trans: 'Three days. The universe has been preparing something extraordinary — you.', attr: 'April 7' },
-            { lang: 'Portuguese', text: 'Dois dias. A lua estará cheia. Assim como cada sentimento que tenho por você.', trans: 'Two days. The moon will be full. And so will every feeling I have for you.', attr: 'April 8' },
-            { lang: 'English', text: 'Tomorrow. The world will be brighter. Because tomorrow is yours.', trans: '', attr: 'April 9' },
-            { lang: 'Malayalam', text: 'നാളെ ഈ ലോകം നിന്റെ ചിരിക്കായി കാത്തിരിക്കുന്നു.', trans: 'Tomorrow the world waits for your smile.', attr: 'April 9 · eve' },
-            // Day 26 = Apr 10 — full Tamil birthday
-            { lang: 'Tamil', text: 'உன் புன்னகை என் உலகம். உன் நகைப்பு என் ஆசை. இந்த நாள் உன்னால் பொலிகிறது.', trans: 'Your smile is my world. Your laughter, my longing. This day shines because of you.', attr: 'ஏப்ரல் 10' },
+            { lang: 'English',    text: 'You are the reason the moon rises a little brighter tonight.',                                                                    trans: '',                                                                                     attr: 'March 15' },
+            { lang: 'Tamil',      text: 'நீ என் இதயத்தில் என்றும் வாழும் ஒளி.',                                                                                          trans: 'You are the light that lives forever in my heart.',                                     attr: 'March 16' },
+            { lang: 'French',     text: 'Dans chaque battement de mon cœur, il y a ton prénom.',                                                                           trans: 'In every heartbeat of mine, there is your name.',                                       attr: 'March 17' },
+            { lang: 'Spanish',    text: 'Eres la calma que siempre estuve buscando.',                                                                                      trans: 'You are the calm I was always searching for.',                                          attr: 'March 18' },
+            { lang: 'Japanese',   text: 'あなたといると、時間が止まるみたいだ。',                                                                                            trans: 'When I am with you, time seems to stop.',                                               attr: 'March 19' },
+            { lang: 'Italian',    text: 'Sei la cosa più gentile e più potente nella mia vita.',                                                                            trans: 'You are the gentlest and most powerful thing in my life.',                              attr: 'March 20' },
+            { lang: 'Hindi',      text: 'तुम हो तो हर रोज़ त्योहार है।',                                                                                                  trans: 'With you, every day feels like a celebration.',                                         attr: 'March 21' },
+            { lang: 'Portuguese', text: 'Você é o lar que eu nunca soube que precisava.',                                                                                  trans: 'You are the home I never knew I needed.',                                               attr: 'March 22' },
+            { lang: 'Korean',     text: '네가 있어서 세상이 따뜻해.',                                                                                                       trans: 'Because of you, the world feels warm.',                                                 attr: 'March 23' },
+            { lang: 'Arabic',     text: 'أنتِ النور الذي يُضيء كلّ يوم في حياتي.',                                                                                        trans: 'You are the light that brightens every day of my life.',                                attr: 'March 24' },
+            { lang: 'German',     text: 'Du bist die Antwort auf eine Frage, die ich nie zu stellen wusste.',                                                              trans: 'You are the answer to a question I never knew to ask.',                                 attr: 'March 25' },
+            { lang: 'Malayalam',  text: 'നിന്റെ ചിരി കാണുമ്പോൾ ഹൃദയം നിറഞ്ഞൊഴുകും.',                                                                                   trans: 'When I see your smile, my heart overflows.',                                            attr: 'March 26' },
+            { lang: 'Telugu',     text: 'నువ్వు నా జీవితంలో వెలుతురువి.',                                                                                                trans: 'You are the light in my life.',                                                         attr: 'March 27' },
+            { lang: 'English',    text: 'The closer we get to your day, the more the moon reveals itself — for you.',                                                      trans: '',                                                                                     attr: 'March 28' },
+            { lang: 'Tamil',      text: 'இந்த நிலவு உன்னுடைய நாளுக்காக காத்திருக்கிறது.',                                                                                trans: 'This moon has been waiting for your day.',                                              attr: 'March 29' },
+            { lang: 'French',     text: 'Quand tu es née, le monde est devenu un endroit plus doux.',                                                                      trans: 'When you were born, the world became a kinder place.',                                  attr: 'March 30' },
+            { lang: 'Spanish',    text: 'Eres lo que el silencio trataba de decir.',                                                                                       trans: 'You are what the silence was trying to say.',                                           attr: 'March 31' },
+            { lang: 'Japanese',   text: '月はほぼ満ちている。あなたへの私の心のように。',                                                                                    trans: 'The moon is almost full. Like my heart — because of you.',                              attr: 'April 1' },
+            { lang: 'Korean',     text: '별들은 태초부터 너를 향해 카운트다운하고 있었어.',                                                                                  trans: 'The stars have been counting down to you since the beginning.',                         attr: 'April 2' },
+            { lang: 'Arabic',     text: 'أنتِ المعنى الذي كنتُ أبحث عنه دائماً.',                                                                                        trans: 'You are the meaning I was always searching for.',                                       attr: 'April 3' },
+            { lang: 'Italian',    text: 'Sei la casa che non sapevo di cercare.',                                                                                           trans: 'You are the home I did not know I was looking for.',                                    attr: 'April 4' },
+            { lang: 'Hindi',      text: 'तुम वो सुबह हो जिसके लिए हर रात का इंतज़ार सार्थक है।',                                                                         trans: 'You are the morning that makes every night worth waiting for.',                         attr: 'April 5' },
+            { lang: 'German',     text: 'Drei Tage. Das Universum hat etwas Außergewöhnliches vorbereitet — dich.',                                                        trans: 'Three days. The universe has been preparing something extraordinary — you.',            attr: 'April 7' },
+            { lang: 'Portuguese', text: 'Dois dias. A lua estará cheia. Assim como cada sentimento que tenho por você.',                                                   trans: 'Two days. The moon will be full. And so will every feeling I have for you.',            attr: 'April 8' },
+            { lang: 'English',    text: 'Tomorrow. The world will be brighter. Because tomorrow is yours.',                                                                trans: '',                                                                                     attr: 'April 9' },
+            { lang: 'Malayalam',  text: 'നാളെ ഈ ലോകം നിന്റെ ചിരിക്കായി കാത്തിരിക്കുന്നു.',                                                                              trans: 'Tomorrow the world waits for your smile.',                                              attr: 'April 9 · eve' },
+            { lang: 'Tamil',      text: 'உன் புன்னகை என் உலகம். உன் நகைப்பு என் ஆசை. இந்த நாள் உன்னால் பொலிகிறது.',                                                    trans: 'Your smile is my world. Your laughter, my longing. This day shines because of you.',    attr: 'ஏப்ரல் 10' },
         ];
 
-        // ─── Dates ─────────────────────────────────────────────────────────────────
-        const BIRTHDAY = new Date('2026-04-10T00:00:00');
+        const BIRTHDAY    = new Date('2026-04-10T00:00:00');
         const COUNT_START = new Date('2026-03-15T00:00:00');
-        const TOTAL_DAYS = Math.round((BIRTHDAY - COUNT_START) / 86400000); // 26
+        const TOTAL_DAYS  = Math.round((BIRTHDAY - COUNT_START) / 86400000);
 
         function getDayIndex() {
             const now = new Date(); now.setHours(0, 0, 0, 0);
-            const s = new Date(COUNT_START); s.setHours(0, 0, 0, 0);
+            const s   = new Date(COUNT_START); s.setHours(0, 0, 0, 0);
             return Math.max(0, Math.min(TOTAL_DAYS, Math.floor((now - s) / 86400000)));
         }
 
         function pad(n) { return String(n).padStart(2, '0'); }
 
-        // ─── Populate today's quote ─────────────────────────────────────────────────
         const day = getDayIndex();
-        const q = QUOTES[Math.min(day, QUOTES.length - 1)];
+        const q   = QUOTES[Math.min(day, QUOTES.length - 1)];
 
         document.getElementById('qEyebrow').textContent = `Day ${day} of 26`;
-        document.getElementById('qLang').textContent = q.lang;
-        document.getElementById('qText').textContent = q.text;
-        document.getElementById('qAttr').textContent = q.attr;
+        document.getElementById('qLang').textContent    = q.lang;
+        document.getElementById('qText').textContent    = q.text;
+        document.getElementById('qAttr').textContent    = q.attr;
 
         const transEl = document.getElementById('qTrans');
-        if (q.trans) {
-            transEl.textContent = q.trans;
-            transEl.style.display = '';
-        } else {
-            transEl.style.display = 'none';
-        }
+        if (q.trans) { transEl.textContent = q.trans; transEl.style.display = ''; }
+        else          { transEl.style.display = 'none'; }
 
         document.getElementById('day-pill').textContent = `${TOTAL_DAYS - day} days remaining`;
 
-        // ─── Birthday check ─────────────────────────────────────────────────────────
         const isBirthday = BIRTHDAY.getTime() <= Date.now();
         if (isBirthday) {
             setTimeout(() => document.getElementById('bday-veil').classList.add('show'), 2200);
         }
 
-        // ─── Staggered UI reveal ────────────────────────────────────────────────────
         setTimeout(() => {
             document.getElementById('quote-block').classList.add('show');
             document.getElementById('day-pill').classList.add('show');
@@ -531,7 +576,6 @@
             document.getElementById('signature').classList.add('show');
         }, 2000);
 
-        // ─── Countdown ──────────────────────────────────────────────────────────────
         const cdD = document.getElementById('cdD');
         const cdH = document.getElementById('cdH');
         const cdM = document.getElementById('cdM');
@@ -549,8 +593,9 @@
             }
             const d = Math.floor(diff / 86400000);
             const h = Math.floor((diff % 86400000) / 3600000);
-            const m = Math.floor((diff % 3600000) / 60000);
-            const s = Math.floor((diff % 60000) / 1000);
+            const m = Math.floor((diff % 3600000)  / 60000);
+            const s = Math.floor((diff % 60000)    / 1000);
+
             if (s !== prevS) {
                 cdS.classList.add('tick');
                 setTimeout(() => { cdS.classList.remove('tick'); cdS.textContent = pad(s); }, 160);
