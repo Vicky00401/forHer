@@ -365,7 +365,7 @@ const loader = new GLTFLoader();
 loader.setDRACOLoader(dracoLoader);
 loader.setMeshoptDecoder(MeshoptDecoder);
 
-loader.load('./model/mainpage_model/scene.glb', (gltf) => {
+loader.load('./model/mainpage_model/scene.gltf', (gltf) => {
   object1 = gltf.scene;
   const p=getMoonProgress(), pos=getMoonWorldPos(p);
 
