@@ -1,5 +1,7 @@
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.129.0/build/three.module.js';
 import { GLTFLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js";
+import { DRACOLoader } from 'https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/DRACOLoader.js';
+import { MeshoptDecoder } from 'https://cdn.jsdelivr.net/npm/meshoptimizer@0.18.1/meshopt_decoder.module.js';
 import { gsap } from 'https://cdn.skypack.dev/gsap';
 
 // ─── Date & Progress ──────────────────────────────────────────────────────────
@@ -354,8 +356,16 @@ const POS_END   = new THREE.Vector3(-0.3,-0.05,0);
 function getMoonWorldPos(p) { return new THREE.Vector3().lerpVectors(POS_START,POS_END,p); }
 
 // ─── Model ────────────────────────────────────────────────────────────────────
+// ── Draco + Meshopt decoders attached before load ────────────────────────────
+const dracoLoader = new DRACOLoader();
+dracoLoader.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5.6/');
+dracoLoader.preload(); // starts fetching decoder wasm before the model arrives
+
 const loader = new GLTFLoader();
-loader.load('./model/mainpage_model/scene.gltf', (gltf) => {
+loader.setDRACOLoader(dracoLoader);
+loader.setMeshoptDecoder(MeshoptDecoder);
+
+loader.load('./model/mainpage_model/scene.glb', (gltf) => {
   object1 = gltf.scene;
   const p=getMoonProgress(), pos=getMoonWorldPos(p);
 
