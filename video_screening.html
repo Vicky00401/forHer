@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Site Professional</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="body">
+    <section id="main_content" class="video-section pb-80 mt-4" style="height:auto;width:100%;">
+            <!-- <h1 class="mx-4 video_text">Astral Beat</h1> -->
+    <!-- <div class="container-fluid">
+        <div class="trailer">
+            <div class="videoplayer no_variable_height">
+                <video id="video_play" controls style="width:100%;height:auto"></video>
+            </div>
+        </div>
+    </div> -->
+<div class="container-fluid" style="display: flex; justify-content: center;">
+    <div class="trailer" style="display: flex; justify-content: center; width: 100%;">
+        <div class="videoplayer no_variable_height" style="display: flex; justify-content: center;">
+            <video id="video_play" controls autoplay style="width:90%; height:auto; @media (max-width: 768px) {
+                width: 100%;
+                height:auto;
+            }">
+                <source src="./assets/video/sample.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+</div>
+
+    </section>
+
+
+    <section id="second_section" style="height:auto;width:100%;">
+        <div class="row align-items-center mt-4 pt-4" style="height: auto;">
+            <div class="col-12 col-lg-4 align-items-center d-flex justify-content-center">
+                <img src="./assets/images/trailer1.png" style="height:200px;width: 300px; border-radius: 45px;"/>
+            </div>
+            <div class="col-12 col-lg-6 mt-4 pt-4">
+                <h1 class="video_text">Find Your Soul</h1>
+                <p class="mx-2 video_details" style="color:#f6fbee;">Genere</p>
+                <h6 class="video_details mx-2" style="color:#f6fbee;text-align: justify;">
+                    Paragraphs are the building blocks of papers. Many students define paragraphs in terms of length: a paragraph is a group of at least five sentences, a paragraph is half a page long, etc. In reality, though, the unity and coherence of ideas among sentences is what constitutes a paragraph. A paragraph is defined as “a group of sentences or a single sentence that forms a unit” (Lunsford and Connors 116). 
+                </h6>
+            </div>
+            <div class="col-12 col-lg-2 mt-4 pt-4 align-items-center" style="line-height: 10px;">
+                <h3 class="mx-2 video_details" style="color:#f6fbee;">In Detail</h3>
+                    <!-- <p class="mx-2">Title: <span class="color-sec">{{content.program_name}}</span></p>
+                    <p class="mx-2">Author: <span class="color-sec">{{content.author_id}}</span></p>
+                    <p class="mx-2">Date aired: {{content.created_at}} </p>
+                    <p class="mx-2">Status: <span class="color-sec">Completed</span></p>
+                    <p class="mx-2">Genre: {{content.genere}} </p>
+                    <p class="mx-2">Country: India </p>
+                    <p class="mx-2">Scores: 2.53 by 4,405 reviews </p>
+                    <p class="mx-2">Enrolled by: {{content.no_of_enrolled}} </p>
+                    <p class="mx-2">Duration: {{content.no_of_hours}} </p>
+                    <p class="mx-2">Views: 18,284 </p> -->
+                <p class="mx-2 video_details" style="color:#f6fbee;">Title: <span>Find your Soul</span></p>
+                <p class="mx-2 video_details" style="color:#f6fbee;">Author: <span class="color-sec">Sharan</span></p>
+                <p class="mx-2 video_details" style="color:#f6fbee;">Date aired: 22-06-2025 </p>
+                <p class="mx-2 video_details" style="color:#f6fbee;">Genre: Soul </p>
+                <p class="mx-2 video_details" style="color:#f6fbee;">Country: India </p>
+                <p class="mx-2 video_details" style="color:#f6fbee;">Enrolled by: 45000 </p>
+                <p class="mx-2 video_details" style="color:#f6fbee;">Views: 18,284 </p>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="third_section" class="mt-4 pt-4" style="height:auto;width:100%;">
+    <!-- <ul class="list-group elegant-list">
+    {% for data_value in lesson %}
+    <li class="list-group-item parent-item" onclick="toggleSubList(this)">
+        <div class="d-flex justify-content-between align-items-center">
+            <div><strong>#{{forloop.counter}}</strong> {{data_value.lesson_name}}</div>
+
+        </div>
+
+        <ul class="sub-list list-group mt-3">
+            {% for video_entry in lesson_entry_videos %}
+            {% if video_entry.lesson_id == data_value.lesson_id %}
+            <li class="list-group-item"><a href="{% url 'user:video_for_lesson' data_value.program_id video_entry.lesson_id video_entry.id %}">{{video_entry.video_title}}</a></li>
+            {% endif %}
+            {% endfor %}
+
+            <li class="list-group-item"></li>
+        </ul>
+    </li>
+    {% endfor %}
+</ul> -->
+<div class="row align-items-center">
+    <div class="col-12 col-lg-8">
+        <div style="width: 100%;" class="col-12 d-flex">
+        <h3><a href="javascript:void(0);" style="text-decoration: none;" class="video_text" onclick="showlesson('lesson')">Lessons</a></h3>
+        <h3><a href="javascript:void(0);" style="text-decoration: none;" class="video_text" onclick="showlesson('comment_section')">Comments</a></h3>
+        </div>
+       
+        <!--LESSON-->
+        <div class="col-12">
+        <ul class="list-group elegant-list mx-2 " id="lesson" style="width: 90%;display: none;">
+  
+        <li class="list-group-item parent-item" onclick="toggleSubList(this)">
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="video_details"><strong>1</strong>. Main Title</div>
+
+        </div>
+
+        <ul class="sub-list list-group mt-3">
+            <li class="list-group-item video_details ">Title</li>
+        </ul>
+        </li>
+        </ul>
+        <!--Comment-->
+        <div class="mt-4" id="comment_section">
+            <h4 class="video_details mx-3" style="color:#f6fbee;">Comments</h4>
+            <div class="col-12">
+                <form method="POST" class="mx-3" style="display: flex; justify-content: center;align-items: center; gap: 20px;">
+                <img src="./assets/images/avatar.png" style="height:50px; width:50px; border-radius: 50px;" />
+                <input type="text" placeholder="Enter your Comment" style="width: 80%;background: transparent;  border: 0;border-bottom: 1px solid #FFFFFF;padding-bottom: 8px;color: #FFFFFF;" id="comment"/>
+                <button type="submit" class="comment-submit" style="
+                    bottom: 8px;
+                    background: transparent;
+                    border: 0;
+                    color: #FFFFFF;
+                    font-size: 20px;
+                    cursor: pointer;
+                    transition: all 0.3s ease-in-out;">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+                </form>
+            </div>
+            <div>
+                <div class="col-12 mt-3">
+                <form class="mx-4 px-4">
+                    <div class="d-flex align-items-center">
+                        <img src="./assets/images/avatar.png" style="height:50px; width:50px; border-radius: 50px;" />
+                            <p class="ms-2 mt-2" style="width: 80%;background: transparent;  border: 0;color: #FFFFFF;"><span>@Username</span>: Test Comment</p>
+                       
+                    </div>
+                    
+                </form>
+                </div>
+            </div>
+        </div>
+    <!--Comment-->
+    </div>
+    </div>
+    
+    <div class="col-12 col-lg-4">
+        <h3 class="video_text">Other Programs</h3>
+        <ul class="list-group elegant-list mx-4 " style="width: 90%;">
+  
+        <li class="list-group-item parent-item">
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex text-center align-items-center justify-content-center">
+                <img src="./assets/images/symbol.png" style="width: 80px;height: 81px;border-radius: 15px;"/>
+                <p class="video_details ms-2">Entrepreneur</p> 
+            </div>
+        </div>
+        </li>
+        </ul>
+    </div>
+</div>
+</section>
+
+<section id="fourth_section" class="mt-4 pt-4" style="height:auto;width:100%;">  
+        <h1 class="mx-4 video_text">You can also Explore this</h1>
+          <!--Popular Shows max 4 -->
+        <div class="row mt-4 mx-4">
+  <div class="col-12">
+    <div class="horizontal_slider" id="sliderTrack">
+        <div>
+            <div class="card3" style="background-image: url(./assets/images/video.png);">
+                <div class="border"></div>
+                <div class="content">
+                
+                <span class="logo-bottom-text"></span>
+                </div>
+                <span class="bottom-text"></span>
+            </div>
+            <h5 class="video_text">Start Your Soul</h5>
+        </div>
+
+        <div>
+            <div class="card3" style="background-image: url(./assets/images/video2.png);">
+                <div class="border"></div>
+                <div class="content">
+                
+                <span class="logo-bottom-text"></span>
+                </div>
+                <span class="bottom-text"></span>
+            </div>
+            <h5 class="video_text">Choose your Love</h5>
+        </div>
+
+        <div>
+            <div class="card3" style="background-image: url(./assets/images/video3.png);">
+                <div class="border"></div>
+                <div class="content">
+                
+                <span class="logo-bottom-text"></span>
+                </div>
+                <span class="bottom-text"></span>
+            </div>
+            <h5 class="video_text">All we need is Friendship</h5>
+        </div>
+
+        <div>
+            <div class="card3" style="background-image: url(./assets/images/video4.png);">
+                <div class="border"></div>
+                <div class="content">
+                
+                <span class="logo-bottom-text"></span>
+                </div>
+                <span class="bottom-text"></span>
+            </div>
+            <h5 class="video_text">Friendship</h5>
+        </div>
+ 
+    </div>
+  </div>
+</div>
+    <!--End-->
+</section>
+
+    <section id="popular_section" style="height:auto;width:100%;">
+        <h1 class="mx-4 video_text">Popular Shows</h1>
+          <!--Popular Shows max 4 -->
+        <div class="row mt-4 mx-4">
+  <div class="col-12">
+    <div class="horizontal_slider" id="sliderTrack">
+        <div>
+            <div class="card2" style="background-image: url(./assets/images/popular1.png);">
+                <div class="border"></div>
+                <div class="content">
+                
+                <span class="logo-bottom-text"></span>
+                </div>
+                <span class="bottom-text"></span>
+            </div>
+            <h5 class="video_text">Start Your Soul</h5>
+        </div>
+
+        <div>
+            <div class="card2" style="background-image: url(./assets/images/popular2.png);">
+                <div class="border"></div>
+                <div class="content">
+                
+                <span class="logo-bottom-text"></span>
+                </div>
+                <span class="bottom-text"></span>
+            </div>
+            <h5 class="video_text">Choose your Love</h5>
+        </div>
+
+        <div>
+            <div class="card2" style="background-image: url(./assets/images/popular3.png);">
+                <div class="border"></div>
+                <div class="content">
+                
+                <span class="logo-bottom-text"></span>
+                </div>
+                <span class="bottom-text"></span>
+            </div>
+            <h5 class="video_text">All we need is Friendship</h5>
+        </div>
+
+        <div>
+            <div class="card2" style="background-image: url(./assets/images/popular4.png);">
+                <div class="border"></div>
+                <div class="content">
+                
+                <span class="logo-bottom-text"></span>
+                </div>
+                <span class="bottom-text"></span>
+            </div>
+            <h5 class="video_text">Friendship</h5>
+        </div>
+ 
+    </div>
+  </div>
+</div>
+    <!--End-->
+    </section>
+<audio autoplay loop hidden>
+  <source src="./assets/images/softwind.mp3" type="audio/mpeg">
+</audio>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js" integrity="sha512-P2IDYZfqSwjcSjX0BKeNhwRUH8zRPGlgcWl5n6gBLzdi4Y5/0O4zaXrtO4K9TZK6Hn1BenYpKowuCavNandERg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="module" src="main2.js"></script>
+    <script>
+    function toggleSubList(item) {
+        const sublist = item.querySelector(".sub-list");
+        const isVisible = sublist.style.display === "block";
+        // Hide all other sublists
+        document.querySelectorAll(".sub-list").forEach(el => el.style.display = "none");
+        // Toggle current one
+        sublist.style.display = isVisible ? "none" : "block";
+    }
+
+    function showlesson(section_name){
+    if (section_name == "lesson"){
+        document.getElementById('lesson').style.display = 'block'
+        document.getElementById('comment_section').style.display = 'none'
+    }
+    else{
+        document.getElementById('lesson').style.display = 'none'
+        document.getElementById('comment_section').style.display = 'block'
+    }
+
+}
+    </script>
+    <div class="overlay_body" style="width: 100%;height: auto;"></div>
+</body>
+</html>

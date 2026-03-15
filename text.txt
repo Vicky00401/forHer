@@ -1,0 +1,46 @@
+<div class="container_category">
+  <div class="cards_category">
+    <div class="card_category">
+      <div class="icon_category">
+        <i class="fa-solid fa-paintbrush"></i>
+        <p class="title_category">Soul</p>
+      </div>
+     
+    </div>
+    <div class="card_category">
+      <div class="icon_category">
+        <i class="fas fa-code"></i>
+        <p class="title_category">Body</p>
+      </div>
+     
+    </div>
+    <div class="card_category">
+      <div class="icon_category">
+        <i class="fas fa-cog"></i>
+        <p class="title_category">Love</p>
+      </div>
+     
+    </div>
+    <div class="card_category">
+      <div class="icon_category">
+        <i class="fa-solid fa-user-group"></i>
+        <p class="title_category">Mind</p>
+      </div>
+     
+    </div>
+    <div class="card_category">
+      <div class="icon_category">
+        <i class="fa-regular fa-clipboard"></i>
+        <p class="title_category">Peace</p>
+      </div>
+     
+    </div>
+    <div class="card_category">
+      <div class="icon_category">
+        <i class="fas fa-graduation-cap"></i>
+        <p class="title_category">Success</p>
+      </div>
+  </div>
+ 
+</div>
+</div>
