@@ -491,49 +491,45 @@
 
     <!-- Birthday veil -->
     <div id="bday-veil">
-        <div class="bday-main">Happy Birthday, my love</div>
-        <div class="bday-tamil">
-            உன் புன்னகை என் உலகம்.<br>
-            உன் நகைப்பு என் ஆசை.<br>
-            இந்த நாள் உன்னால் பொலிகிறது — என்னால் அல்ல.
-        </div>
-        <div class="bday-sub">April 10 · always yours · always</div>
+    <div class="bday-main">Happy Birthday.</div>
+    <div class="bday-tamil">
+      நம்மிடையே என்ன நடந்தாலும்,<br>
+      உன் பிறந்தநாள் அழகாக இருக்கட்டும்.<br>
+      உன்னை நேசிக்கிறேன் — அது மாறாது.
     </div>
-
-    <script>
-        // ─── 26 daily multilingual quotes (Mar 15 → Apr 9) + birthday (Apr 10) ───────
-        // Day 0 = Mar 15 (eclipse crescent), Day 26 = Apr 10 (full moon, Tamil)
-        const QUOTES = [
-            { lang: 'English', text: 'You are the reason the moon rises a little brighter tonight.', trans: '', attr: 'March 15' },
-            { lang: 'Tamil', text: 'நீ என் இதயத்தில் என்றும் வாழும் ஒளி.', trans: 'You are the light that lives forever in my heart.', attr: 'March 16' },
-            { lang: 'French', text: 'Dans chaque battement de mon cœur, il y a ton prénom.', trans: 'In every heartbeat of mine, there is your name.', attr: 'March 17' },
-            { lang: 'Spanish', text: 'Eres la calma que siempre estuve buscando.', trans: 'You are the calm I was always searching for.', attr: 'March 18' },
-            { lang: 'Japanese', text: 'あなたといると、時間が止まるみたいだ。', trans: 'When I am with you, time seems to stop.', attr: 'March 19' },
-            { lang: 'Italian', text: 'Sei la cosa più gentile e più potente nella mia vita.', trans: 'You are the gentlest and most powerful thing in my life.', attr: 'March 20' },
-            { lang: 'Hindi', text: 'तुम हो तो हर रोज़ त्योहार है।', trans: 'With you, every day feels like a celebration.', attr: 'March 21' },
-            { lang: 'Portuguese', text: 'Você é o lar que eu nunca soube que precisava.', trans: 'You are the home I never knew I needed.', attr: 'March 22' },
-            { lang: 'Korean', text: '네가 있어서 세상이 따뜻해.', trans: 'Because of you, the world feels warm.', attr: 'March 23' },
-            { lang: 'Arabic', text: 'أنتِ النور الذي يُضيء كلّ يوم في حياتي.', trans: 'You are the light that brightens every day of my life.', attr: 'March 24' },
-            { lang: 'German', text: 'Du bist die Antwort auf eine Frage, die ich nie zu stellen wusste.', trans: 'You are the answer to a question I never knew to ask.', attr: 'March 25' },
-            { lang: 'Malayalam', text: 'നിന്റെ ചിരി കാണുമ്പോൾ ഹൃദയം നിറഞ്ഞൊഴുകും.', trans: 'When I see your smile, my heart overflows.', attr: 'March 26' },
-            { lang: 'Telugu', text: 'నువ్వు నా జీవితంలో వెలుతురువి.', trans: 'You are the light in my life.', attr: 'March 27' },
-            { lang: 'English', text: 'The closer we get to your day, the more the moon reveals itself — for you.', trans: '', attr: 'March 28' },
-            { lang: 'Tamil', text: 'இந்த நிலவு உன்னுடைய நாளுக்காக காத்திருக்கிறது.', trans: 'This moon has been waiting for your day.', attr: 'March 29' },
-            { lang: 'French', text: 'Quand tu es née, le monde est devenu un endroit plus doux.', trans: 'When you were born, the world became a kinder place.', attr: 'March 30' },
-            { lang: 'Spanish', text: 'Eres lo que el silencio trataba de decir.', trans: 'You are what the silence was trying to say.', attr: 'March 31' },
-            { lang: 'Japanese', text: '月はほぼ満ちている。あなたへの私の心のように。', trans: 'The moon is almost full. Like my heart — because of you.', attr: 'April 1' },
-            { lang: 'Korean', text: '별들은 태초부터 너를 향해 카운트다운하고 있었어.', trans: 'The stars have been counting down to you since the beginning.', attr: 'April 2' },
-            { lang: 'Arabic', text: 'أنتِ المعنى الذي كنتُ أبحث عنه دائماً.', trans: 'You are the meaning I was always searching for.', attr: 'April 3' },
-            { lang: 'Italian', text: 'Sei la casa che non sapevo di cercare.', trans: 'You are the home I did not know I was looking for.', attr: 'April 4' },
-            { lang: 'Hindi', text: 'तुम वो सुबह हो जिसके लिए हर रात का इंतज़ार सार्थक है।', trans: 'You are the morning that makes every night worth waiting for.', attr: 'April 5' },
-            { lang: 'German', text: 'Drei Tage. Das Universum hat etwas Außergewöhnliches vorbereitet — dich.', trans: 'Three days. The universe has been preparing something extraordinary — you.', attr: 'April 7' },
-            { lang: 'Portuguese', text: 'Dois dias. A lua estará cheia. Assim como cada sentimento que tenho por você.', trans: 'Two days. The moon will be full. And so will every feeling I have for you.', attr: 'April 8' },
-            { lang: 'English', text: 'Tomorrow. The world will be brighter. Because tomorrow is yours.', trans: '', attr: 'April 9' },
-            { lang: 'Malayalam', text: 'നാളെ ഈ ലോകം നിന്റെ ചിരിക്കായി കാത്തിരിക്കുന്നു.', trans: 'Tomorrow the world waits for your smile.', attr: 'April 9 · eve' },
-            // Day 26 = Apr 10 — full Tamil birthday
-            { lang: 'Tamil', text: 'உன் புன்னகை என் உலகம். உன் நகைப்பு என் ஆசை. இந்த நாள் உன்னால் பொலிகிறது.', trans: 'Your smile is my world. Your laughter, my longing. This day shines because of you.', attr: 'ஏப்ரல் 10' },
-        ];
-
+    <div class="bday-sub">April 10 · always, regardless</div>
+  </div>
+ 
+  <script>
+  const QUOTES = [
+    { lang:'English',     text:'Some people deserve the whole sky — you are one of them.',                                        trans:'',                                                                              attr:'March 15'     },
+    { lang:'Tamil',       text:'நீ சரி இல்லாத நேரத்திலும், உன்னை நேசிக்கிறேன்.',                                               trans:'Even when things are not okay between us, I still love you.',                  attr:'March 16'     },
+    { lang:'French',      text:'Je ne sais pas tout faire bien, mais te tenir à cœur — ça, je sais.',                            trans:'I may not do everything right, but holding you in my heart — that I know.',   attr:'March 17'     },
+    { lang:'Japanese',    text:'怒っていても、あなたのことを思い続けている。',                                                            trans:'Even when we are upset, I keep thinking of you.',                               attr:'March 18'     },
+    { lang:'Spanish',     text:'No siempre encuentro las palabras, pero siempre te encuentro a ti.',                             trans:'I do not always find the words, but I always find you.',                         attr:'March 19'     },
+    { lang:'Korean',      text:'싸우는 중에도 네가 괜찮은지 걱정돼.',                                                                  trans:'Even while we fight, I still wonder if you are okay.',                          attr:'March 20'     },
+    { lang:'Italian',     text:'Il silenzio tra noi non significa che non ci tengo.',                                            trans:'The silence between us does not mean I stopped caring.',                         attr:'March 21'     },
+    { lang:'Hindi',       text:'लड़ाई चाहे जितनी हो, तुम्हारे लिए दुआ तो हमेशा रहेगी।',                                        trans:'No matter how we fight, my prayers for you never stop.',                         attr:'March 22'     },
+    { lang:'Portuguese',  text:'Mesmo quando estou com raiva, o meu coração ainda bate por você.',                               trans:'Even when I am angry, my heart still beats for you.',                            attr:'March 23'     },
+    { lang:'German',      text:'Manchmal weiß ich nicht, wie ich es besser machen soll. Aber ich möchte es versuchen.',          trans:'Sometimes I do not know how to do better. But I want to try.',                  attr:'March 24'     },
+    { lang:'Arabic',      text:'حتى في الصمت، قلبي يسألُ عنكِ.',                                                                trans:'Even in silence, my heart asks about you.',                                      attr:'March 25'     },
+    { lang:'Malayalam',   text:'വഴക്കിനിടയിലും നിന്നെ കുറിച്ചോർക്കുമ്പോൾ മനസ്സ് മൃദുവാകും.',                                  trans:'Even in a fight, thinking of you makes my heart go soft.',                      attr:'March 26'     },
+    { lang:'Turkish',     text:'Seninle kavgalı olsak da, seni düşünmekten vazgeçemiyorum.',                                     trans:'Even when we argue, I cannot stop thinking of you.',                             attr:'March 27'     },
+    { lang:'Bengali',     text:'ঝগড়ার মাঝেও তোমার কথা ভাবলে মন শান্ত হয়ে যায়।',                                               trans:'Even in a fight, thinking of you brings me peace.',                             attr:'March 28'     },
+    { lang:'Swahili',     text:'Hata wakati wa ugomvi, moyo wangu unakumbuka upole wako.',                                       trans:'Even in conflict, my heart remembers your gentleness.',                          attr:'March 29'     },
+    { lang:'Greek',       text:'Ακόμα και θυμωμένος, δεν σταματώ να σε νοιάζομαι.',                                            trans:'Even when angry, I never stop caring about you.',                                attr:'March 30'     },
+    { lang:'Persian',     text:'در میان دلخوری‌ها، فکرت از ذهنم نمی‌رود.',                                                      trans:'Even through the hurt, thoughts of you never leave me.',                         attr:'March 31'     },
+    { lang:'Urdu',        text:'لڑائی میں بھی، تمہاری خیر چاہتا ہوں۔',                                                         trans:'Even in a fight, I still wish only good things for you.',                        attr:'April 1'      },
+    { lang:'Punjabi',     text:'ਝਗੜੇ ਵਿੱਚ ਵੀ, ਮੇਰਾ ਮਨ ਤੇਰੇ ਵੱਲ ਝੁਕਦਾ ਹੈ।',                                                     trans:'Even in a fight, my heart still leans toward you.',                             attr:'April 2'      },
+    { lang:'Marathi',     text:'भांडण असलं तरी, तुझ्यासाठी मनात काळजी असतेच.',                                                  trans:'Even in a fight, care for you lives quietly in my heart.',                      attr:'April 3'      },
+    { lang:'Dutch',       text:'Ook als ik niet weet wat ik moet zeggen, denk ik aan jou.',                                     trans:'Even when I do not know what to say, I think of you.',                           attr:'April 4'      },
+    { lang:'Sinhala',     text:'ඔබ ගැන සිතන විට, කෝපය සන්සුන් වේ.',                                                            trans:'When I think of you, the anger grows quiet.',                                   attr:'April 5'      },
+    { lang:'Nepali',      text:'झगडाको बीचमा पनि, तिम्रो खुसी चाहन्छु।',                                                       trans:'Even in the middle of a fight, I want your happiness.',                          attr:'April 6'      },
+    { lang:'Russian',     text:'Даже в ссоре я желаю тебе только хорошего.',                                                     trans:'Even in an argument, I wish you nothing but good things.',                       attr:'April 7'      },
+    { lang:'Swedish',     text:'Även när orden tryter, finns du kvar i mina tankar.',                                            trans:'Even when words fail, you remain in my thoughts.',                               attr:'April 8'      },
+    { lang:'English',     text:'Whatever we are going through — you still deserve the most beautiful birthday.',                 trans:'',                                                                              attr:'April 9'      },
+    { lang:'Tamil',       text:'நம்மிடையே என்ன நடந்தாலும், உன் பிறந்தநாளன்று நான் உன்னை நேசிக்கிறேன் — அது மாறாது.',        trans:'Whatever is between us, on your birthday I love you — that never changes.',    attr:'ஏப்ரல் 10'   },
+  ];
         // ─── Dates ─────────────────────────────────────────────────────────────────
         const BIRTHDAY = new Date('2026-04-10T00:00:00');
         const COUNT_START = new Date('2026-03-15T00:00:00');
