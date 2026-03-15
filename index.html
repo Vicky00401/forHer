@@ -75,7 +75,7 @@
             position: fixed;
             top: clamp(24px, 4vh, 52px);
             left: clamp(20px, 4vw, 60px);
-            z-index: 20;
+            z-index: 30;
             max-width: min(360px, 42vw);
             pointer-events: none;
             opacity: 0;
@@ -113,7 +113,7 @@
             font-size: clamp(7px, 0.7vw, 9px);
             font-weight: 200;
             letter-spacing: 4.5px;
-            color: rgba(150, 175, 235, 0.32);
+            color: rgba(170, 195, 245, 0.72);
             text-transform: uppercase;
             margin-bottom: 12px;
         }
@@ -124,9 +124,9 @@
             font-size: clamp(6px, 0.65vw, 8px);
             font-weight: 200;
             letter-spacing: 3px;
-            color: rgba(160, 190, 245, 0.28);
+            color: rgba(180, 205, 255, 0.68);
             text-transform: uppercase;
-            border: 0.5px solid rgba(150, 175, 235, 0.12);
+            border: 0.5px solid rgba(160, 185, 245, 0.35);
             padding: 3px 8px;
             border-radius: 20px;
             margin-bottom: 14px;
@@ -136,7 +136,7 @@
             display: block;
             width: 22px;
             height: 0.5px;
-            background: rgba(140, 168, 230, 0.18);
+            background: rgba(140, 168, 230, 0.40);
             margin-bottom: 16px;
         }
 
@@ -145,9 +145,10 @@
             font-style: italic;
             font-size: clamp(15px, 1.7vw, 23px);
             font-weight: 300;
-            color: rgba(215, 228, 255, 0.75);
+            color: rgba(225, 235, 255, 0.95);
             line-height: 1.7;
             letter-spacing: 0.15px;
+            text-shadow: 0 0 28px rgba(0, 0, 0, 0.85), 0 1px 8px rgba(0, 0, 0, 0.70);
         }
 
         .q-translation {
@@ -156,9 +157,10 @@
             font-size: clamp(7px, 0.65vw, 9px);
             font-weight: 200;
             letter-spacing: 1.5px;
-            color: rgba(140, 165, 225, 0.25);
+            color: rgba(175, 198, 240, 0.72);
             line-height: 1.6;
             font-style: normal;
+            text-shadow: 0 0 18px rgba(0, 0, 0, 0.80);
         }
 
         .q-attr {
@@ -167,8 +169,9 @@
             font-size: clamp(6px, 0.6vw, 8px);
             font-weight: 200;
             letter-spacing: 3px;
-            color: rgba(130, 155, 218, 0.22);
+            color: rgba(155, 178, 228, 0.62);
             text-transform: uppercase;
+            text-shadow: 0 0 14px rgba(0, 0, 0, 0.75);
         }
 
         /* ── Top-right: Day pill ─────────────────────────────────────────── */
@@ -176,17 +179,18 @@
             position: fixed;
             top: clamp(24px, 4vh, 52px);
             right: clamp(20px, 4vw, 60px);
-            z-index: 20;
+            z-index: 30;
             font-family: 'Montserrat', sans-serif;
             font-size: clamp(6px, 0.65vw, 8px);
             font-weight: 200;
             letter-spacing: 4px;
-            color: rgba(130, 158, 220, 0.25);
+            color: rgba(165, 190, 235, 0.70);
             text-transform: uppercase;
             pointer-events: none;
             opacity: 0;
             transition: opacity 3s ease 1.2s;
             text-align: right;
+            text-shadow: 0 0 14px rgba(0, 0, 0, 0.75);
         }
 
             #day-pill.show {
@@ -198,7 +202,7 @@
             position: fixed;
             bottom: clamp(24px, 4vh, 52px);
             left: clamp(20px, 4vw, 60px);
-            z-index: 20;
+            z-index: 30;
             display: flex;
             align-items: flex-end;
             gap: 12px;
@@ -214,7 +218,7 @@
         .sig-bar {
             width: 0.5px;
             height: 40px;
-            background: rgba(140, 168, 230, 0.15);
+            background: rgba(140, 168, 230, 0.40);
             flex-shrink: 0;
         }
 
@@ -223,9 +227,10 @@
             font-style: italic;
             font-size: clamp(11px, 1vw, 14px);
             font-weight: 300;
-            color: rgba(160, 185, 240, 0.25);
+            color: rgba(185, 205, 248, 0.68);
             letter-spacing: 1px;
             padding-bottom: 2px;
+            text-shadow: 0 0 14px rgba(0, 0, 0, 0.75);
         }
 
         @media (max-width: 640px) {
@@ -239,7 +244,7 @@
             position: fixed;
             bottom: clamp(24px, 4vh, 52px);
             right: clamp(20px, 4vw, 60px);
-            z-index: 20;
+            z-index: 30;
             text-align: right;
             pointer-events: none;
             opacity: 0;
@@ -270,9 +275,10 @@
             font-size: clamp(6px, 0.65vw, 8px);
             font-weight: 200;
             letter-spacing: 4.5px;
-            color: rgba(130, 158, 220, 0.25);
+            color: rgba(165, 190, 235, 0.70);
             text-transform: uppercase;
             margin-bottom: 16px;
+            text-shadow: 0 0 14px rgba(0, 0, 0, 0.75);
         }
 
         .cd-units {
@@ -300,11 +306,11 @@
             font-family: 'Cormorant Garamond', serif;
             font-size: clamp(36px, 5vw, 66px);
             font-weight: 300;
-            color: rgba(200, 218, 255, 0.78);
+            color: rgba(215, 228, 255, 0.95);
             line-height: 1;
             text-align: center;
             letter-spacing: -1px;
-            text-shadow: 0 0 50px rgba(120, 160, 255, 0.12);
+            text-shadow: 0 0 50px rgba(120, 160, 255, 0.18), 0 0 20px rgba(0, 0, 0, 0.80);
             transition: opacity 0.18s ease, transform 0.18s ease;
         }
 
@@ -318,15 +324,16 @@
             font-size: clamp(5px, 0.55vw, 7px);
             font-weight: 200;
             letter-spacing: 2.5px;
-            color: rgba(120, 148, 210, 0.22);
+            color: rgba(155, 178, 225, 0.62);
             text-transform: uppercase;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.70);
         }
 
         .cd-colon {
             font-family: 'Cormorant Garamond', serif;
             font-size: clamp(28px, 4vw, 54px);
             font-weight: 300;
-            color: rgba(140, 168, 230, 0.12);
+            color: rgba(160, 185, 235, 0.35);
             line-height: 1;
             padding-top: 1px;
             align-self: flex-start;
@@ -338,17 +345,18 @@
             font-size: clamp(6px, 0.6vw, 8px);
             font-weight: 100;
             letter-spacing: 5px;
-            color: rgba(110, 138, 200, 0.18);
+            color: rgba(145, 168, 215, 0.58);
             text-transform: uppercase;
+            text-shadow: 0 0 14px rgba(0, 0, 0, 0.75);
         }
 
         /* ── Corner brackets ─────────────────────────────────────────────── */
         .corner {
             position: fixed;
-            z-index: 20;
+            z-index: 30;
             width: 12px;
             height: 12px;
-            opacity: 0.12;
+            opacity: 0.28;
             pointer-events: none;
         }
 
