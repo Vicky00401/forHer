@@ -526,6 +526,14 @@ function animate() {
 drawFlare(getMoonProgress());
 animate();
 
+// ─── Midnight reload — advances moon phase automatically ──────────────────────
+function scheduleMidnightReload() {
+  const now = new Date();
+  const msUntilMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1) - now;
+  setTimeout(() => location.reload(), msUntilMidnight);
+}
+scheduleMidnightReload();
+
 // ─── Resize ───────────────────────────────────────────────────────────────────
 window.addEventListener('resize',()=>{
   renderer.setSize(window.innerWidth,window.innerHeight);
