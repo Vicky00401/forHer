@@ -3,7 +3,7 @@ import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.129.0/build/three.m
 import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.129.0/examples/jsm/loaders/GLTFLoader.js';
 import { DRACOLoader } from 'https://cdn.jsdelivr.net/npm/three@0.129.0/examples/jsm/loaders/DRACOLoader.js';
 import { MeshoptDecoder } from 'https://cdn.jsdelivr.net/npm/meshoptimizer@0.18.1/meshopt_decoder.module.js';
-import { gsap } from 'https://cdn.skypack.dev/gsap';;
+import { gsap } from 'https://cdn.skypack.dev/gsap';
 
 // ─── Date & Progress ──────────────────────────────────────────────────────────
 const BIRTHDAY    = new Date('2026-04-10T00:00:00');
@@ -366,7 +366,7 @@ const loader = new GLTFLoader();
 loader.setDRACOLoader(dracoLoader);
 loader.setMeshoptDecoder(MeshoptDecoder);
 
-loader.load('./model/mainpage_model/scene.gltf', (gltf) => {
+loader.load('./model/mainpage_model/moon.glb', (gltf) => {
   object1 = gltf.scene;
   const p=getMoonProgress(), pos=getMoonWorldPos(p);
 
