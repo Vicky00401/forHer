@@ -1,4 +1,4 @@
-﻿import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.129.0/build/three.module.js';
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.129.0/build/three.module.js';
 import { GLTFLoader } from "https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js";
 import { gsap } from 'https://cdn.skypack.dev/gsap';
 
@@ -86,14 +86,14 @@ function drawAurora(t) {
   bgCtx.fillStyle=`rgb(${Math.round(base+1)},${Math.round(base)},${Math.round(base+6)})`;
   bgCtx.fillRect(0,0,W,H);
 
-  // ── 6 nebula blobs ──────────────────────────────────────────────────────────
+  // ── 6 nebula blobs — opacity reduced ~40% ──────────────────────────────────
   for (const b of auroraBlobs) {
     b.x+=b.vx; b.y+=b.vy;
     if (b.x<-0.2||b.x>1.2) b.vx*=-1;
     if (b.y<-0.2||b.y>1.2) b.vy*=-1;
     const cx=b.x*W, cy=b.y*H, rx=b.r*Math.max(W,H);
     const hue=b.hue+Math.sin(t*0.016+b.x*5)*25;
-    const alpha=0.068+Math.sin(t*0.010+b.y*3)*0.030;
+    const alpha=0.038+Math.sin(t*0.010+b.y*3)*0.016;
     const g=bgCtx.createRadialGradient(cx,cy,0,cx,cy,rx);
     g.addColorStop(0,   `hsla(${hue},${b.sat}%,24%,${alpha})`);
     g.addColorStop(0.30,`hsla(${hue},${b.sat}%,16%,${alpha*0.65})`);
@@ -102,9 +102,9 @@ function drawAurora(t) {
     bgCtx.fillStyle=g; bgCtx.fillRect(0,0,W,H);
   }
 
-  // ── Aurora band 1 — upper purple, drifts vertically ────────────────────────
+  // ── Aurora band 1 — upper purple, opacity reduced ~45% ─────────────────────
   const b1y=H*(0.28+Math.sin(t*0.0065)*0.08), b1h=H*0.30;
-  const a1=0.13+Math.sin(t*0.010)*0.06;
+  const a1=0.07+Math.sin(t*0.010)*0.03;
   const g1=bgCtx.createLinearGradient(0,b1y-b1h,0,b1y+b1h);
   g1.addColorStop(0,   'rgba(0,0,0,0)');
   g1.addColorStop(0.22,`rgba(45,8,90,${a1*0.45})`);
@@ -113,9 +113,9 @@ function drawAurora(t) {
   g1.addColorStop(1,   'rgba(0,0,0,0)');
   bgCtx.fillStyle=g1; bgCtx.fillRect(0,b1y-b1h,W,b1h*2);
 
-  // ── Aurora band 2 — lower magenta, opposite drift ──────────────────────────
+  // ── Aurora band 2 — lower magenta, opacity reduced ~45% ───────────────────
   const b2y=H*(0.70+Math.sin(t*0.0085+1.8)*0.07), b2h=H*0.24;
-  const a2=0.10+Math.sin(t*0.013+2.2)*0.05;
+  const a2=0.055+Math.sin(t*0.013+2.2)*0.025;
   const g2=bgCtx.createLinearGradient(0,b2y-b2h,0,b2y+b2h);
   g2.addColorStop(0,   'rgba(0,0,0,0)');
   g2.addColorStop(0.28,`rgba(90,8,65,${a2*0.5})`);
@@ -124,10 +124,10 @@ function drawAurora(t) {
   g2.addColorStop(1,   'rgba(0,0,0,0)');
   bgCtx.fillStyle=g2; bgCtx.fillRect(0,b2y-b2h,W,b2h*2);
 
-  // ── Aurora band 3 — teal ribbon that ripples horizontally ──────────────────
+  // ── Aurora band 3 — teal ribbon, opacity reduced ~45% ──────────────────────
   const ripple=Math.sin(t*0.0055)*0.14;
   const g3=bgCtx.createLinearGradient(W*(0.08+ripple),0,W*(0.92+ripple),0);
-  const a3=0.055+Math.sin(t*0.012+1.2)*0.025;
+  const a3=0.030+Math.sin(t*0.012+1.2)*0.012;
   g3.addColorStop(0,   'rgba(0,0,0,0)');
   g3.addColorStop(0.25,`rgba(8,42,95,${a3})`);
   g3.addColorStop(0.50,`rgba(18,65,140,${a3*1.6})`);
@@ -135,10 +135,10 @@ function drawAurora(t) {
   g3.addColorStop(1,   'rgba(0,0,0,0)');
   bgCtx.fillStyle=g3; bgCtx.fillRect(0,H*0.33,W,H*0.34);
 
-  // ── Aurora band 4 — violet radial bloom that drifts left/right ────────────
+  // ── Aurora band 4 — violet radial bloom, opacity reduced ~45% ─────────────
   const b4x=W*(0.50+Math.sin(t*0.0042)*0.18);
   const g4=bgCtx.createRadialGradient(b4x,H*0.5,0,b4x,H*0.5,W*0.45);
-  const a4=0.038+Math.sin(t*0.009+3.0)*0.018;
+  const a4=0.020+Math.sin(t*0.009+3.0)*0.009;
   g4.addColorStop(0,  `rgba(60,20,100,${a4})`);
   g4.addColorStop(0.5,`rgba(30,10,60,${a4*0.4})`);
   g4.addColorStop(1,  'rgba(0,0,0,0)');
@@ -359,7 +359,8 @@ loader.load('./model/mainpage_model/scene.gltf', (gltf) => {
   object1 = gltf.scene;
   const p=getMoonProgress(), pos=getMoonWorldPos(p);
 
-  object1.scale.setScalar(1.0);
+  // ── Scale increased to 1.35 ──
+  object1.scale.setScalar(1.35);
   object1.position.copy(pos);
   object1.rotation.x=THREE.MathUtils.degToRad(-5);
   object1.rotation.y=THREE.MathUtils.degToRad(200);
@@ -376,9 +377,14 @@ loader.load('./model/mainpage_model/scene.gltf', (gltf) => {
     }
   });
 
-  shadowSphere.scale.setScalar(1.0);
+  // ── Shadow sphere scale matches moon ──
+  shadowSphere.scale.setScalar(1.35);
   shadowSphere.position.copy(pos);
   scene.add(object1);
+
+  // ── Dismiss loader once model is ready ──
+  const loaderEl = document.getElementById('loader');
+  if (loaderEl) loaderEl.classList.add('hide');
 
   updateLightForPhase(p);
   updateShadow(p);
@@ -391,10 +397,10 @@ loader.load('./model/mainpage_model/scene.gltf', (gltf) => {
     onUpdate:()=>{ renderer.toneMappingExposure=exp.v; }
   });
 
-  // Scale entrance
-  const s={v:0.88};
+  // Scale entrance — starts at 1.18, animates up to 1.35
+  const s={v:1.18};
   gsap.to(s,{
-    v:1.0, duration:5.5, ease:'power3.out',
+    v:1.35, duration:5.5, ease:'power3.out',
     onUpdate:()=>{ if(object1){object1.scale.setScalar(s.v);shadowSphere.scale.setScalar(s.v);} }
   });
 
