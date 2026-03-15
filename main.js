@@ -359,8 +359,12 @@ loader.load('./model/mainpage_model/scene.gltf', (gltf) => {
   object1 = gltf.scene;
   const p=getMoonProgress(), pos=getMoonWorldPos(p);
 
-  // ── Scale increased to 1.35 ──
-  object1.scale.setScalar(1.35);
+  // ── Responsive scale — desktop: 1.45, mobile: 1.10 ──
+  const isMobile = window.innerWidth <= 640;
+  const TARGET_SCALE  = isMobile ? 1.10 : 1.45;
+  const ENTRANCE_SCALE = isMobile ? 0.92 : 1.24;
+
+  object1.scale.setScalar(TARGET_SCALE);
   object1.position.copy(pos);
   object1.rotation.x=THREE.MathUtils.degToRad(-5);
   object1.rotation.y=THREE.MathUtils.degToRad(200);
@@ -378,7 +382,7 @@ loader.load('./model/mainpage_model/scene.gltf', (gltf) => {
   });
 
   // ── Shadow sphere scale matches moon ──
-  shadowSphere.scale.setScalar(1.35);
+  shadowSphere.scale.setScalar(TARGET_SCALE);
   shadowSphere.position.copy(pos);
   scene.add(object1);
 
@@ -397,10 +401,10 @@ loader.load('./model/mainpage_model/scene.gltf', (gltf) => {
     onUpdate:()=>{ renderer.toneMappingExposure=exp.v; }
   });
 
-  // Scale entrance — starts at 1.18, animates up to 1.35
-  const s={v:1.18};
+  // Scale entrance — eases from ENTRANCE_SCALE up to TARGET_SCALE
+  const s={v:ENTRANCE_SCALE};
   gsap.to(s,{
-    v:1.35, duration:5.5, ease:'power3.out',
+    v:TARGET_SCALE, duration:5.5, ease:'power3.out',
     onUpdate:()=>{ if(object1){object1.scale.setScalar(s.v);shadowSphere.scale.setScalar(s.v);} }
   });
 
