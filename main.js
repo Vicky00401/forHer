@@ -1,7 +1,7 @@
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.129.0/build/three.module.js';
 import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.129.0/examples/jsm/loaders/GLTFLoader.js';
 import { DRACOLoader } from 'https://cdn.jsdelivr.net/npm/three@0.129.0/examples/jsm/loaders/DRACOLoader.js';
-import { MeshoptDecoder } from 'https://cdn.jsdelivr.net/npm/meshoptimizer@0.18.1/meshopt_decoder.module.js';
+import { MeshoptDecoder } from 'https://cdn.jsdelivr.net/npm/three@0.129.0/examples/jsm/libs/meshopt_decoder.module.js';
 import { gsap } from 'https://cdn.skypack.dev/gsap';
 
 // ─── Date & Progress ──────────────────────────────────────────────────────────
