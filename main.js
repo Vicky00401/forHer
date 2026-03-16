@@ -217,8 +217,8 @@ async function initThree() {
     { gsap },
   ] = await Promise.all([
     import('https://cdn.jsdelivr.net/npm/three@0.129.0/build/three.module.js'),
-    import('https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js'),
-    import('https://cdn.skypack.dev/gsap'),
+import('https://cdn.jsdelivr.net/npm/three@0.129.0/examples/jsm/loaders/GLTFLoader.js'),
+import('https://cdn.jsdelivr.net/npm/gsap@3.12.5/index.js')
   ]);
 
   threeReady = true; // stops the standalone aurora loop
