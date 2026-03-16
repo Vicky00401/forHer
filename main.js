@@ -403,7 +403,7 @@ async function initThree() {
 
   // ─── Load model ─────────────────────────────────────────────────────────────
   const loader = new GLTFLoader();
-  loader.load('./model/mainpage_model/scene.gltf', (gltf) => {
+  loader.load('./model/mainpage_model/moon.glb', (gltf) => {
     object1 = gltf.scene;
     const p=getMoonProgress(), pos=getMoonWorldPos(p);
 
