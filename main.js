@@ -211,15 +211,15 @@ drawFlare(getMoonProgress());
 
 // ── OPTIMIZATION 5: Load Three.js dynamically — doesn't block page render ────
 async function initThree() {
-  const [
-    { default: THREE },
-    { GLTFLoader },
-    { gsap },
-  ] = await Promise.all([
-    import('https://cdn.jsdelivr.net/npm/three@0.129.0/build/three.module.js'),
-import('https://cdn.jsdelivr.net/npm/three@0.129.0/examples/jsm/loaders/GLTFLoader.js'),
-import('https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js'),
-  ]);
+ const [
+  { default: THREE },
+  { GLTFLoader },
+  { gsap },
+] = await Promise.all([
+  import('https://esm.sh/three@0.129.0'),
+  import('https://esm.sh/three@0.129.0/examples/jsm/loaders/GLTFLoader.js'),
+  import('https://esm.sh/gsap@3.12.5'),
+]);
 
   threeReady = true; // stops the standalone aurora loop
 
