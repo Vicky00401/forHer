@@ -254,7 +254,7 @@ scene.add(new THREE.HemisphereLight(0x0a1428, 0x000000, 0.15));
 function updateLightForPhase(p) {
   const angle = THREE.MathUtils.lerp(Math.PI*0.988, Math.PI*0.033, p);
   keyLight.position.set(Math.sin(angle)*9, 4.8-p*2.0, Math.cos(angle)*9.5);
-  keyLight.intensity = THREE.MathUtils.lerp(0.5, 5.4, p);
+  keyLight.intensity = THREE.MathUtils.lerp(0.5, 3.8, p);
 
   rimLight.position.set(Math.sin(angle)*5.5, 5.2-p*2.5, Math.cos(angle)*5.5);
   rimLight.intensity = THREE.MathUtils.lerp(10.0, 0.2, p); // blazing at eclipse
@@ -262,7 +262,7 @@ function updateLightForPhase(p) {
   backLight.intensity = THREE.MathUtils.lerp(0.65, 0.12, p);
 
   // Sync exposure after initial fade-in animation
-  if (frame > 330) renderer.toneMappingExposure = THREE.MathUtils.lerp(0.42, 1.02, p);
+  if (frame > 330) renderer.toneMappingExposure = THREE.MathUtils.lerp(0.38, 0.82, p);
 }
 
 // ══════════════════════════════════════════════════════════════════════════════
@@ -395,8 +395,8 @@ loader.load('./model/mainpage_model/scene.gltf', (gltf) => {
 
   // Exposure fade-in
   const exp={v:0};
-  gsap.to(exp,{
-    v: THREE.MathUtils.lerp(0.42,1.02,p),
+gsap.to(exp,{
+    v: THREE.MathUtils.lerp(0.38, 0.82, p),
     duration:5.5, ease:'power2.inOut',
     onUpdate:()=>{ renderer.toneMappingExposure=exp.v; }
   });
