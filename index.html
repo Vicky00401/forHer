@@ -458,14 +458,14 @@
     <div class="corner br"></div>
 
     <!-- Quote: top-left -->
-    <div id="quote-block">
-        <div class="q-eyebrow" id="qEyebrow"></div>
-        <div class="q-lang-badge" id="qLang"></div>
-        <div class="q-line"></div>
-        <div class="q-text" id="qText"></div>
-        <div class="q-translation" id="qTrans"></div>
-        <div class="q-attr" id="qAttr"></div>
-    </div>
+   <div id="quote-block" style="background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 16px; padding: 2rem; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);">
+  <div class="q-eyebrow" id="qEyebrow"></div>
+  <div class="q-lang-badge" id="qLang"></div>
+  <div class="q-line"></div>
+  <div class="q-text" id="qText"></div>
+  <div class="q-translation" id="qTrans"></div>
+  <div class="q-attr" id="qAttr"></div>
+</div>
 
     <!-- Day pill: top-right -->
     <div id="day-pill"></div>
@@ -526,11 +526,36 @@
     { lang:'Marathi',     text:'काहीही असो, तुझ्याबद्दलची काळजी मनात असतेच.',                                                   trans:'Whatever it is, care for you always lives in my heart.',                        attr:'April 3'      },
     { lang:'Dutch',       text:'Ook als ik niet weet wat ik moet zeggen, denk ik aan jou.',                                     trans:'Even when I do not know what to say, I think of you.',                           attr:'April 4'      },
     { lang:'Sinhala',     text:'ඔබ ගැන සිතන විට, හදවත සන්සුන් වේ.',                                                            trans:'When I think of you, my heart grows calm.',                                     attr:'April 5'      },
-    { lang:'Nepali',      text:'जे भए पनि, तिम्रो खुसी नै मेरो चाहना हो।',                                                     trans:'Whatever it is, your happiness is all I want.',                                 attr:'April 6'      },
-    { lang:'Russian',     text:'Что бы ни было, я желаю тебе только хорошего.',                                                  trans:'Whatever it is, I wish you nothing but good things.',                           attr:'April 7'      },
-    { lang:'Swedish',     text:'Även när orden tryter, finns du kvar i mina tankar.',                                            trans:'Even when words fail, you remain in my thoughts.',                               attr:'April 8'      },
-    { lang:'English',     text:'Whatever we are going through — you still deserve the most beautiful birthday.',                 trans:'',                                                                              attr:'April 9'      },
-    { lang:'Tamil',       text:'நம்மிடையே என்ன நடந்தாலும், உன் பிறந்தநாளன்று நான் உன்னை நேசிக்கிறேன் — அது மாறாது.',        trans:'Whatever is between us, on your birthday I love you — that never changes.',    attr:'ஏப்ரல் 10'   },
+   {
+    lang: 'Nepali',
+    text: 'तिमीलाई पाउनु नै मेरो सबैभन्दा ठूलो सपना हो।',
+    trans: 'Having you is my greatest dream.',
+    attr: 'April 6'
+  },
+  {
+    lang: 'Russian',
+    text: 'Ты — единственная, с кем я хочу встретить все свои рассветы.',
+    trans: 'You are the only one I want to meet all my sunrises with.',
+    attr: 'April 7'
+  },
+  {
+    lang: 'Swedish',
+    text: 'Jag har inte ord nog — men jag har ett helt liv att visa dig.',
+    trans: 'I don\'t have enough words — but I have a whole life to show you.',
+    attr: 'April 8'
+  },
+  {
+  lang: 'English',
+  text: 'You mean more to me than words can hold — and whatever comes, that will never change.',
+  trans: '',
+  attr: 'April 9'
+},
+  {
+    lang: 'Tamil',
+    text: 'உன் பதில் என்னவாக இருந்தாலும் — நான் உன்னை நேசிக்கிறேன், அது மாறாது. உன்னோட சந்தோஷம் என் வாழ்நாள் பொறுப்பு. பிறந்தநாள் வாழ்த்துக்கள்.',
+    trans: 'Whatever your answer may be — I love you, that never changes. Your happiness is my lifelong responsibility. Happy Birthday.',
+    attr: 'ஏப்ரல் 10'
+  }
   ];
         // ─── Dates ─────────────────────────────────────────────────────────────────
         const BIRTHDAY = new Date('2026-04-10T00:00:00');
