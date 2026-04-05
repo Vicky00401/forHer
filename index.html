@@ -97,24 +97,38 @@
             }
 
         /* On small screens, quote moves below the moon (bottom area) */
-        @media (max-width: 640px) {
-            #quote-block {
-                top: auto;
-                bottom: clamp(100px, 22vh, 160px);
-                left: 50%;
-                transform: translateX(-50%) translateY(10px);
-                max-width: 88vw;
-                text-align: center;
-            }
+     @media (max-width: 640px) {
+    #quote-block {
+        top: auto;
+        bottom: clamp(100px, 22vh, 160px);
+        left: 50%;
+        transform: translateX(-50%) translateY(10px);
+        max-width: 92vw;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 12px;
+        text-align: left;
+        padding: 1rem 1.2rem;
+    }
 
-                #quote-block.show {
-                    transform: translateX(-50%) translateY(0);
-                }
+    #quote-block.show {
+        transform: translateX(-50%) translateY(0);
+    }
 
-            .q-line {
-                margin: 0 auto 16px;
-            }
-        }
+    .q-line {
+        width: 0.5px;
+        height: 40px;
+        min-width: 0.5px;
+        margin: 0;
+        flex-shrink: 0;
+    }
+
+    .q-eyebrow,
+    .q-lang-badge {
+        display: none;
+    }
+}
 
         .q-eyebrow {
             font-family: 'Montserrat', sans-serif;
